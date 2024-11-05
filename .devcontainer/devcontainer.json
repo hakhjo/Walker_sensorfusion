@@ -4,7 +4,7 @@
     "../docker-compose.yml"
   ],
   "service": "python-reader",            // Use python-reader as the main service
-  "workspaceFolder": "/app",             // Set to the mount point in the container
+  "workspaceFolder": "/workspace",             // Set to the mount point in the container
   "customizations": {
     "vscode": {
       "extensions": [

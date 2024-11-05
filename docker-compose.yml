@@ -4,29 +4,25 @@ services:
     build:
       context: ./python
     volumes:
-      - .:/app             # Mounts the entire project directory to /app
-      - ./data:/data       # Mounts the local data directory to /data in the container
+      - .:/workspace           # Mount the entire project to /workspace
     networks:
       - robot-net
-    command: python3 /app/read_data.py
+    command: /bin/bash -c "sleep infinity" #python3 python/read_data.py  # Adjusted path for read_data.py
 
   cpp-reader:
     build:
       context: ./cpp
     volumes:
-      - .:/app             # Mounts the project folder to /app for consistency
-      - ./data:/data       # Mounts the local data directory to /data in the container
+      - .:/workspace           # Mount the entire project to /workspace
     networks:
       - robot-net
-    command: /bin/bash -c "./read_data"
-
+    command: /bin/bash -c "sleep infinity"
   cross-compile:
     build:
       context: .
       dockerfile: cross-compile/Dockerfile
     volumes:
-      - .:/app             # Optional: mount project directory if needed
-      - ./output:/output   # Mounts the output directory for compiled files
+      - .:/workspace
     networks:
       - robot-net
     command: /bin/bash -c "sleep infinity"

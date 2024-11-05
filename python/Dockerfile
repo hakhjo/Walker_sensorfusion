@@ -5,5 +5,5 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy source code
-COPY . /app
-WORKDIR /app
+COPY . /workspace
+WORKDIR /workspace/python

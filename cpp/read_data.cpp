@@ -6,7 +6,7 @@
 
 int main() {
     std::string line;
-    const std::string file_path = "/data/input.txt";
+    const std::string file_path = "/workspace/data/input.txt";
 
     while (true) {
         std::ifstream data_file(file_path);
