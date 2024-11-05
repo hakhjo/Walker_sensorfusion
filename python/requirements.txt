@@ -1,0 +1,5 @@
+numpy
+scipy
+matplotlib
+pyrealsense2
+# Add other dependencies here
