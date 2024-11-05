@@ -1,0 +1,4 @@
+.devcontainer/*.log
+__pycache__/
+*.pyc
+output/

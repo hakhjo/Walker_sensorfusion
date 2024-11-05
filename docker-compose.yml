@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  python-reader:
+    build:
+      context: ./python
+    volumes:
+      - ./data:/data  # Make sure this path is correct
+    networks:
+      - robot-net
+    command: python3 /app/read_data.py  # Ensure this command is correct
+
+  cpp-reader:
+    build:
+      context: ./cpp
+    volumes:
+      - ./data:/data  # Make sure this path is correct
+    networks:
+      - robot-net
+    command: /bin/bash -c "./read_data"  # Ensure this command is correct
+
+  cross-compile:
+    build:
+      context: .
+      dockerfile: cross-compile/Dockerfile
+    volumes:
+      - ./output:/output
+    networks:
+      - robot-net
+    command: /bin/bash -c "sleep infinity"  # Keeps container alive for testing
+
+networks:
+  robot-net:
+    driver: bridge
