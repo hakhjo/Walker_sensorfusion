@@ -2,4 +2,5 @@ numpy
 scipy
 matplotlib
 pyrealsense2
+cv2
 # Add other dependencies here
