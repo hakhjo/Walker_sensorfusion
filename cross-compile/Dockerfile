@@ -1,5 +1,4 @@
 FROM ubuntu:20.04
-
 # Install cross-compilation tools
 RUN apt-get update && apt-get install -y \
     gcc-aarch64-linux-gnu \
@@ -12,8 +11,8 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /output
 
 # Copy the source file (adjust path if needed)
-COPY ../cpp/read_data.cpp /app/read_data.cpp
-WORKDIR /app
+COPY ../cpp/read_data.cpp /workspace//read_data.cpp
+WORKDIR /workspace
 
 # Compile the C++ file for the target architecture
 RUN aarch64-linux-gnu-g++ -o /output/robot_program read_data.cpp

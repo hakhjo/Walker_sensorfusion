@@ -4,29 +4,28 @@ services:
     build:
       context: ./python
     volumes:
-      - ./data:/data  # Make sure this path is correct
+      - .:/workspace           # Mount the entire project to /workspace
     networks:
       - robot-net
-    command: python3 /app/read_data.py  # Ensure this command is correct
+    command: /bin/bash -c "sleep infinity" #python3 python/read_data.py  # Adjusted path for read_data.py
 
   cpp-reader:
     build:
       context: ./cpp
     volumes:
-      - ./data:/data  # Make sure this path is correct
+      - .:/workspace           # Mount the entire project to /workspace
     networks:
       - robot-net
-    command: /bin/bash -c "./read_data"  # Ensure this command is correct
-
+    command: /bin/bash -c "sleep infinity"
   cross-compile:
     build:
       context: .
       dockerfile: cross-compile/Dockerfile
     volumes:
-      - ./output:/output
+      - .:/workspace
     networks:
       - robot-net
-    command: /bin/bash -c "sleep infinity"  # Keeps container alive for testing
+    command: /bin/bash -c "sleep infinity"
 
 networks:
   robot-net:

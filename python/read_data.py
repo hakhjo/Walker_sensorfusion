@@ -1,7 +1,10 @@
 import time
 import os
 
-data_file = "/data/input.txt"
+import os
+
+data_file = os.path.join(os.getcwd(), "data", "input.txt")
+# data_file = os.path.abspath(data_file)  # Optional: Get the absolute path
 i = 0
 
 while True:
