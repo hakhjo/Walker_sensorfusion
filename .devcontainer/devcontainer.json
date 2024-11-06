@@ -3,8 +3,8 @@
   "dockerComposeFile": [
     "../docker-compose.yml"
   ],
-  "service": "python-reader",            // Use python-reader as the main service
-  "workspaceFolder": "/workspace",             // Set to the mount point in the container
+  "service": "python-reader",            
+  "workspaceFolder": "/workspace",            
   "customizations": {
     "vscode": {
       "extensions": [
@@ -13,7 +13,7 @@
         "ms-azuretools.vscode-docker"
       ],
       "settings": {
-        "python.pythonPath": "/usr/local/bin/python"
+        "python.pythonPath": "/usr/local/bin/python3"  
       }
     }
   },
