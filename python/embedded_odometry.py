@@ -1,7 +1,7 @@
 
 from embedded_platform_utils import *
 from embedded_platform_realsese import *
-import aruco_library as ARUCO
+import cv2.aruco as ARUCO
 print(" CV2  version: ",cv2.__version__)
 
 local_status = 0
