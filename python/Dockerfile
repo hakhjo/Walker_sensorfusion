@@ -7,7 +7,7 @@ WORKDIR /workspace/python
 COPY requirements.txt . 
 
 # Install Python dependencies
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 # Copy the rest of the source code
 COPY . /workspace
