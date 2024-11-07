@@ -5,10 +5,5 @@ pyrealsense2
 opencv-contrib-python
 imutils
 open3d
-scipy
-mpl_toolkits
-shutil
-sklearn
+scikit-learn
 pandas
-jetson.GPIO
-# Add other dependencies here
