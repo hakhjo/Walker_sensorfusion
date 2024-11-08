@@ -3,8 +3,6 @@ import cv2
 import cv2
 import time
 import numpy as np
-import os
-import glob
 
 def display_t265():
 

@@ -24,3 +24,11 @@
     4.1 Compare Fusion Output to Ground Truth (HTC)
     4.2 Error Analysis
     4.3 Tune and Refine
+
+
+
+commands for camera:
+/lib/systemd/systemd-udevd --daemon
+udevadm control --reload-rules && udevadm trigger
+to get rw of the port
+

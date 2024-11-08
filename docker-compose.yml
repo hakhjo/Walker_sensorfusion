@@ -1,13 +1,17 @@
 services:
   python-reader:
+    privileged: true
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
     build:
       context: ./python
     volumes:
       - .:/workspace           # Mount the entire project to /workspace
     networks:
       - robot-net
-    command: /bin/bash -c "sleep infinity" #python3 python/read_data.py  # Adjusted path for read_data.py
-
+    cap_add:
+      - SYS_ADMIN  # Add more permissions to access USB devices
+    command: /bin/bash -c "sleep infinity"
   cpp-reader:
     build:
       context: ./cpp
@@ -16,6 +20,7 @@ services:
     networks:
       - robot-net
     command: /bin/bash -c "sleep infinity"
+
   cross-compile:
     build:
       context: .
