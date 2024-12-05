@@ -1,9 +1,9 @@
 numpy
 scipy
 matplotlib
-pyrealsense2
+pyrealsense2==2.50.0.3812
 opencv-contrib-python
 imutils
-open3d
+open3d==0.15.2
 scikit-learn
 pandas

@@ -6,11 +6,16 @@ services:
     build:
       context: ./python
     volumes:
-      - .:/workspace           # Mount the entire project to /workspace
+      - .:/workspace 
+      - /tmp/.X11-unix:/tmp/.X11-unix         
     networks:
       - robot-net
     cap_add:
-      - SYS_ADMIN  # Add more permissions to access USB devices
+      - SYS_ADMIN
+      - SYS_PTRACE
+      - NET_ADMIN
+    environment:
+      - DISPLAY=${DISPLAY}
     command: /bin/bash -c "sleep infinity"
   cpp-reader:
     build:

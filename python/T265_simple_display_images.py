@@ -4,6 +4,17 @@ import cv2
 import time
 import numpy as np
 
+# try:
+#     ctx = rs.context()
+#     devices = ctx.query_devices()
+#     if not devices:
+#         print("No RealSense device detected.")
+#     else:
+#         for device in devices:
+#             print("Device:", device.get_info(rs.camera_info.name))
+#             print("Serial Number:", device.get_info(rs.camera_info.serial_number))
+# except Exception as e:
+#     print("Error:", e)
 def display_t265():
 
     pipeline = rs.pipeline()
@@ -28,6 +39,23 @@ def display_t265():
 
             cv2.namedWindow('RealSense', cv2.WINDOW_AUTOSIZE)
             cv2.imshow('RealSense', im_v)
+            pose_frame = frames.get_pose_frame()
+
+            if pose_frame:
+                pose_data = pose_frame.get_pose_data()
+                print("Position: X = {:.2f}, Y = {:.2f}, Z = {:.2f}".format(
+                    pose_data.translation.x,
+                    pose_data.translation.y,
+                    pose_data.translation.z))
+                print("Velocity: X = {:.2f}, Y = {:.2f}, Z = {:.2f}".format(
+                    pose_data.velocity.x,
+                    pose_data.velocity.y,
+                    pose_data.velocity.z))
+                print("Acceleration: X = {:.2f}, Y = {:.2f}, Z = {:.2f}".format(
+                    pose_data.acceleration.x,
+                    pose_data.acceleration.y,
+                    pose_data.acceleration.z))
+
             key = cv2.waitKey(1)
             if key == 27: # ESC
                 return
